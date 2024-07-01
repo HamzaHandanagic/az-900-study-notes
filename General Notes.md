@@ -36,6 +36,7 @@ NOTES:
 - NSG (Network Security Group) filter network traffic between Azure resources in an Azure virtual network. A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
 - Storage Account – every other type of storage builds on top of this. Storage Account lives in specific region. There is redundancy related to it because regions expose idea of availability zones.
 - Redundancy options – LRS, ZRS, GRS, GZRS. ZRS – not available if region does not support availability zones.
+- Endpoints and services in one VNET can not communicate with endpoints and services in another VNET. That can be connected with VNET Peering. On Premises network can be connected to Azure via site-to-site VPN.
 <hr>
 
 - Azure ID Connect, Azure ID Connect Cloud Sync - sync from on-premises Active Directory to AAD
