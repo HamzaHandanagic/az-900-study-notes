@@ -39,6 +39,8 @@ NOTES:
 - Endpoints and services in one VNET can not communicate with endpoints and services in another VNET. That can be connected with VNET Peering. On Premises network can be connected to Azure via site-to-site VPN.
 <hr>
 
+- Microsoft Cloud Adoption Framework - guidance designed to help you create and implement the business and technology strategies in Azure.
+
 - Azure ID Connect, Azure ID Connect Cloud Sync - sync from on-premises Active Directory to AAD
 - Azure AD - 
 - Azure support plans: Basic, Developer, Standard, Professional Direct, Premier.
