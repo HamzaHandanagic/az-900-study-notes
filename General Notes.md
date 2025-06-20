@@ -44,3 +44,5 @@ NOTES:
 - Azure ID Connect, Azure ID Connect Cloud Sync - sync from on-premises Active Directory to AAD
 - Azure AD - 
 - Azure support plans: Basic, Developer, Standard, Professional Direct, Premier.
+
+- Why create multiple subscriptions? - When subscription limits are reached, to use different payment methods, to isolate resources between departments, projects etc.
