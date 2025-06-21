@@ -47,5 +47,7 @@ NOTES:
 
 - Why create multiple subscriptions? - When subscription limits are reached, to use different payment methods, to isolate resources between departments, projects etc.
 - Management Grouo can be used to aggregate policy via Azure Policy. Azure Policies can be assigned at the management group level, which means they apply to all subscriptions and resources under that group. Azure Policy can be applied to individual resources.
+- 
+Virtual machines in different VNETs can not communicate by default but in different subnets within a VNET can communicate by default
 
 
