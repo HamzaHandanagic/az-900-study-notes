@@ -1,0 +1,383 @@
+# AZ-900 — Describe Cloud Concepts (Practice Questions)
+
+## How to use this file
+- Focus area: **Describe cloud concepts** for AZ-900.
+- Try answering first, then check the answer under each question.
+
+---
+
+## 1) Cloud Computing Fundamentals
+
+### Q1
+Which statement best describes cloud computing?
+
+- A. Buying physical servers for permanent use  
+- B. Delivering computing services over the internet  
+- C. Installing software only on local devices  
+- D. Running workloads without any network
+
+**Answer:** B
+
+### Q2
+Which cloud model provides resources over the internet and is owned by a cloud provider?
+
+- A. Private cloud  
+- B. Public cloud  
+- C. Hybrid cloud  
+- D. Edge cloud
+
+**Answer:** B
+
+### Q3
+A company wants to keep some workloads on-premises and move others to Azure. Which model fits best?
+
+- A. Public cloud  
+- B. Private cloud  
+- C. Hybrid cloud  
+- D. SaaS
+
+**Answer:** C
+
+### Q4
+Which cloud model is most suitable when strict data residency or regulatory requirements require dedicated infrastructure?
+
+- A. Public cloud  
+- B. Private cloud  
+- C. Hybrid cloud  
+- D. Community SaaS
+
+**Answer:** B
+
+### Q5
+What is a key financial benefit of cloud computing?
+
+- A. High upfront capital expense (CapEx)  
+- B. Predictable hardware refresh cycles  
+- C. Shift from CapEx to operational expense (OpEx)  
+- D. No billing model
+
+**Answer:** C
+
+---
+
+## 2) Benefits of Cloud Services
+
+### Q6
+What does **high availability** mean in cloud computing?
+
+- A. Resources can only scale up  
+- B. Services remain available despite failures  
+- C. Resources are always on-premises  
+- D. Data is stored in one datacenter
+
+**Answer:** B
+
+### Q7
+What is **scalability**?
+
+- A. Automatically distributing users to a support team  
+- B. Ability to increase or decrease resources to meet demand  
+- C. Encrypting all storage by default  
+- D. Migrating all apps to containers
+
+**Answer:** B
+
+### Q8
+What is **elasticity** in cloud computing?
+
+- A. Paying annually for fixed resources  
+- B. Automatically scaling resources in/out as demand changes  
+- C. Running workloads only at night  
+- D. Moving data to tape backups
+
+**Answer:** B
+
+### Q9
+Which benefit refers to confidence that cloud costs and performance can be forecasted?
+
+- A. Security  
+- B. Governance  
+- C. Predictability  
+- D. Reliability
+
+**Answer:** C
+
+### Q10
+Which benefit helps ensure standards and policies are consistently applied to resources?
+
+- A. Manageability  
+- B. Governance  
+- C. Elasticity  
+- D. Fault tolerance
+
+**Answer:** B
+
+### Q11
+Which cloud benefit allows admins to monitor resources through portals, APIs, and automation tools?
+
+- A. Reliability  
+- B. Manageability  
+- C. Availability  
+- D. Performance tuning
+
+**Answer:** B
+
+### Q12
+Which benefit is most directly improved by distributing applications across multiple regions?
+
+- A. CapEx reduction  
+- B. Reliability and resilience  
+- C. Local disk performance only  
+- D. Software licensing
+
+**Answer:** B
+
+---
+
+## 3) Cloud Service Types (IaaS, PaaS, SaaS)
+
+### Q13
+Which cloud service model provides the most control over operating systems and networking?
+
+- A. SaaS  
+- B. PaaS  
+- C. IaaS  
+- D. FaaS
+
+**Answer:** C
+
+### Q14
+In which model does the cloud provider manage the runtime, middleware, and OS, while you manage your app and data?
+
+- A. IaaS  
+- B. PaaS  
+- C. SaaS  
+- D. Private cloud
+
+**Answer:** B
+
+### Q15
+Which service model typically requires the least technical management by the customer?
+
+- A. IaaS  
+- B. PaaS  
+- C. SaaS  
+- D. Hybrid cloud
+
+**Answer:** C
+
+### Q16
+Which is the best example of SaaS?
+
+- A. Creating virtual machines in Azure  
+- B. Deploying code to a managed web app platform  
+- C. Using Microsoft 365 email service  
+- D. Configuring virtual networks
+
+**Answer:** C
+
+### Q17
+You want to deploy web apps quickly without patching operating systems. Which model fits best?
+
+- A. IaaS  
+- B. PaaS  
+- C. SaaS  
+- D. On-premises only
+
+**Answer:** B
+
+### Q18
+You need full control over VM OS settings for a legacy application. Which model should you choose?
+
+- A. SaaS  
+- B. PaaS  
+- C. IaaS  
+- D. Serverless only
+
+**Answer:** C
+
+---
+
+## 4) Shared Responsibility Model
+
+### Q19
+In all cloud models, who is always responsible for data and account identities?
+
+- A. Cloud provider only  
+- B. Customer only  
+- C. Both share equally in every exact task  
+- D. Third-party auditor
+
+**Answer:** B
+
+### Q20
+Under SaaS, which responsibility is mostly handled by the cloud provider?
+
+- A. Physical datacenter security  
+- B. Customer data classification  
+- C. User access decisions  
+- D. Compliance ownership for customer data
+
+**Answer:** A
+
+### Q21
+Compared to IaaS, customer responsibility in PaaS is generally:
+
+- A. Higher  
+- B. Lower  
+- C. Exactly the same  
+- D. Not defined
+
+**Answer:** B
+
+### Q22
+In IaaS, who typically patches and maintains the guest operating system?
+
+- A. Cloud provider  
+- B. Customer  
+- C. Hardware vendor  
+- D. Nobody
+
+**Answer:** B
+
+### Q23
+Which statement is true about shared responsibility?
+
+- A. The provider is always responsible for everything  
+- B. The customer is always responsible for physical servers  
+- C. Responsibility depends on the service model (IaaS/PaaS/SaaS)  
+- D. It applies only to networking
+
+**Answer:** C
+
+---
+
+## 5) Pricing and Consumption Concepts
+
+### Q24
+What does **consumption-based pricing** mean?
+
+- A. Pay a fixed amount regardless of usage  
+- B. Pay only for resources used  
+- C. Buy hardware every 3 years  
+- D. No billing visibility
+
+**Answer:** B
+
+### Q25
+Which is a common cloud cost optimization approach?
+
+- A. Overprovision all resources permanently  
+- B. Use reserved capacity/pricing where appropriate  
+- C. Disable monitoring  
+- D. Avoid autoscaling
+
+**Answer:** B
+
+### Q26
+Why is cloud often considered more agile than traditional datacenter procurement?
+
+- A. Hardware shipping is faster  
+- B. Resources can be provisioned on demand  
+- C. Procurement approvals are removed  
+- D. Networking is unnecessary
+
+**Answer:** B
+
+### Q27
+Which concept helps avoid paying for idle infrastructure in many workloads?
+
+- A. Fixed annual licensing  
+- B. Elastic scaling  
+- C. Air-gapped deployment  
+- D. Manual capacity planning only
+
+**Answer:** B
+
+---
+
+## 6) Scenario Questions
+
+### Q28
+A startup expects traffic spikes during marketing campaigns but low traffic otherwise. What is the best cloud advantage?
+
+- A. CapEx-heavy purchasing  
+- B. Elasticity and pay-as-you-go  
+- C. Single-server architecture  
+- D. Static allocation forever
+
+**Answer:** B
+
+### Q29
+A bank must keep sensitive workloads on dedicated internal infrastructure, but wants cloud scalability for public apps. Which model fits?
+
+- A. Public cloud  
+- B. Private cloud only  
+- C. Hybrid cloud  
+- D. SaaS only
+
+**Answer:** C
+
+### Q30
+A team wants the provider to manage OS and runtime while they focus on code. Which service type should they choose?
+
+- A. IaaS  
+- B. PaaS  
+- C. SaaS  
+- D. Bare metal hosting
+
+**Answer:** B
+
+### Q31
+A company needs to quickly provide virtual servers with full admin access. Which model is best?
+
+- A. SaaS  
+- B. PaaS  
+- C. IaaS  
+- D. DaaS only
+
+**Answer:** C
+
+### Q32
+Your organization wants to reduce datacenter maintenance burden while still using standard business applications like email and collaboration tools. Which model is most suitable?
+
+- A. IaaS  
+- B. PaaS  
+- C. SaaS  
+- D. Private cloud only
+
+**Answer:** C
+
+---
+
+## 7) Quick True/False Check
+
+### Q33
+In public cloud, customers own and maintain the physical datacenter buildings.
+
+**Answer:** False
+
+### Q34
+In SaaS, customers still need to manage user access and data classification.
+
+**Answer:** True
+
+### Q35
+Elasticity and scalability mean exactly the same thing in all contexts.
+
+**Answer:** False
+
+### Q36
+Cloud computing can improve business agility by enabling faster provisioning.
+
+**Answer:** True
+
+---
+
+## Mini Review Checklist (Describe Cloud Concepts)
+- [ ] I can explain public, private, and hybrid cloud models.
+- [ ] I can describe high availability, scalability, elasticity, reliability, predictability, security, governance, and manageability.
+- [ ] I can differentiate IaaS, PaaS, and SaaS with examples.
+- [ ] I can explain the shared responsibility model across service types.
+- [ ] I can explain CapEx vs OpEx and consumption-based pricing.
+
