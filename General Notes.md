@@ -49,10 +49,3 @@ NOTES:
 - Management Grouo can be used to aggregate policy via Azure Policy. Azure Policies can be assigned at the management group level, which means they apply to all subscriptions and resources under that group. Azure Policy can be applied to individual resources.
 - 
 Virtual machines in different VNETs can not communicate by default but in different subnets within a VNET can communicate by default
-
-- Basic, standard, free, shared tiers ?
-- Basic and Standard tiers support custom domains.
-- Basic Tiers offers 10GB of storage while standard tier offers 50GB. Free and Shared offer less storage.
-- Standard tier includes built-in load balancing across multiple instances which is not available in free, shared, basic.
-
-
