@@ -1,51 +1,203 @@
-NOTES:
+# AZ-900 Study Notes
 
-- Consumption based - Pay as you go
-- Not all Azure Regions currently support availability zones.  Availability zones are primarily for VMs, managed disks, load balancers and databases.
-- Regions, Availability Zones, Datacenters are physical concepts.
-- Zonal service- created in specific availablity zone. To create resiliency I need to create another instance in different zone. Example: VM.
-- Zone redundant - spans through availability zones automatically.
-- Virtual networks, Azure Files, Azure VMs, - IaaS
-- Azure SQL Databases, Azure App Service, Azure Web Apps service, Azure Kubernetes Service - PaaS
-- Availability zones are primarily for VMs, managed disks, load balancers and databases.
-- Azure Reservations are pricing option available to reduce costs and making predicting future spending easier.
-<hr>
+## Pricing and cost
 
-- Governance hierarchy: Azure AD instance > Root Management Group > Management Groups > Subscriptions > Resource Groups > Resources. Those are called scopes.
-- Each Azure AD is given a single top-level management group called the root management group.
-- Governance is inherited down.
-- Governance constructs: RBAC (who), Policy (what), Budget (how much), Resource Locks.
-- You can apply those constructs on Management Group level, Subscription Level or Resource Group Level.
-- Resource groups are not boundary of connectivity. It is possible to connect resources in two separate resource groups. Resources in resource group have common lifecycle.
+- **Consumption (pay-as-you-go)** — pay for what you use.
+- **Azure Reservations** — pricing option to reduce cost and make future spend easier to predict.
 
-- We want to create things using ARM JSON templates. Everything in Azure is stored in JSON.  We want to provision things using ARM templates because they are declarative.
-- How to do it => IMPERATIVE. What is my desired end state => DECLARATIVE.
+---
 
-- Resource lock is inherited down. CAN NOT DELETE - can change it but not delete. READONLY - you can not even change it.
-- Optional metadatada that we can set = tag (esentially key:value). Tag is not inherited. It can be enforced using Azure Policy e.g: if resource is missing this tag go and copy it from resource group.
-- A blueprint is composed of artifacts. Azure Blueprints currently supports the following resources as artifacts: Resource Groups, ARM template, Policy Assignment, Role Assignment.
-- There is a Data Plane (create row at table, create file in storage etc.) and a Control Plane Azure (create, delete, modify resources etc.). All of these concepts like RBAC, Policies etc. are making impact at Control Plane because they are going through ARM.
+## Physical layout: regions, zones, and datacenters
 
-- VM - virtualizaing the hardware. VM is a set of resources: CPU, Memory, Network. Different SKUs for VM. Ratio CPU:Memory.
-- Azure Dedicated Host - If I don't want to share host. I buy a host of a particular SKU and then I can run VMs on that host.
-- Containers - more about virtualizing the software. We have a registry with images. We take an image and run it in container instance. Container spins up almost instanlty which is not the case with VM.
-- ACI (Azure Container Instances) - run just couple of containers. If i want richer set of capabilities, autoscale, full orchestraction => Kubernetes. I can set up Kubernetes myself on VM but there is AKS (Azure Kubernetes Service). What I see are the nodes, everything else is managed. My containers runs in pods.
-- Azure App Service - web focused workload e.g.: API, WebApp, mobile app...
-- Serverless - Azure Functions, Azure Logic App, Event Grid - pushing events to configured destination.
-- Azure Virtual Network is a service that provides the fundamental building block for your private network in Azure. 
-- NSG (Network Security Group) filter network traffic between Azure resources in an Azure virtual network. A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
-- Storage Account – every other type of storage builds on top of this. Storage Account lives in specific region. There is redundancy related to it because regions expose idea of availability zones.
-- Redundancy options – LRS, ZRS, GRS, GZRS. ZRS – not available if region does not support availability zones.
-- Endpoints and services in one VNET can not communicate with endpoints and services in another VNET. That can be connected with VNET Peering. On Premises network can be connected to Azure via site-to-site VPN.
-<hr>
+- **Regions**, **Availability Zones**, and **Datacenters** are **physical** concepts.
+- **Not every region** supports **Availability Zones**. AZs are mainly relevant for **VMs**, **managed disks**, **load balancers**, and **databases**.
+- **Zonal service** — deployed in **one** specific zone (e.g. a VM). For resilience, deploy **another instance in a different zone**.
+- **Zone-redundant service** — **automatically** spans availability zones.
 
-- Microsoft Cloud Adoption Framework - guidance designed to help you create and implement the business and technology strategies in Azure.
+---
 
-- Azure ID Connect, Azure ID Connect Cloud Sync - sync from on-premises Active Directory to AAD
-- Azure AD - 
-- Azure support plans: Basic, Developer, Standard, Professional Direct, Premier.
+## Service models (IaaS vs PaaS)
 
-- Why create multiple subscriptions? - When subscription limits are reached, to use different payment methods, to isolate resources between departments, projects etc.
-- Management Grouo can be used to aggregate policy via Azure Policy. Azure Policies can be assigned at the management group level, which means they apply to all subscriptions and resources under that group. Azure Policy can be applied to individual resources.
-- 
-Virtual machines in different VNETs can not communicate by default but in different subnets within a VNET can communicate by default
+**IaaS (you manage more of the stack)**
+
+- Virtual networks
+- Azure Files
+- Azure VMs
+
+**PaaS (platform manages more)**
+
+- Azure SQL Database
+- Azure App Service / Web Apps
+- Azure Kubernetes Service (AKS)
+
+---
+
+## Governance: hierarchy and scopes
+
+**Hierarchy (top → bottom)**
+
+1. **Azure AD** (tenant)
+2. **Root management group** (one per Azure AD)
+3. **Management groups**
+4. **Subscriptions**
+5. **Resource groups**
+6. **Resources**
+
+These levels are **scopes** for applying governance.
+
+- Governance **inherits downward**.
+- **Management groups** — useful to **aggregate policy** (Azure Policy) across many subscriptions.
+
+**Governance constructs**
+
+| Construct | Typical question |
+|-----------|------------------|
+| **RBAC** | **Who** can do what |
+| **Azure Policy** | **What** is allowed / required |
+| **Budget** | **How much** spend |
+| **Resource locks** | Prevent delete or changes |
+
+**Where you can apply them:** management group, subscription, or resource group (and relevant scopes for individual resources where supported).
+
+**Resource groups**
+
+- **Not** a connectivity boundary — resources in **different** resource groups **can** connect.
+- Resources in one group share a **common lifecycle** (organize/deploy/delete together).
+
+---
+
+## Why multiple subscriptions?
+
+- Hit **subscription limits**
+- **Different payment methods**
+- **Isolation** (departments, projects, environments, etc.)
+
+---
+
+## ARM templates and declarative provisioning
+
+- Azure resource definitions are **JSON**; **ARM** templates describe desired infrastructure.
+- Prefer **declarative** (“**what** is my end state?”) over **imperative** (“**how** do I run each step?”).
+
+---
+
+## Resource locks
+
+- Locks **inherit** down the hierarchy.
+- **CanNotDelete** — can **modify**, cannot **delete**.
+- **ReadOnly** — cannot **change** or **delete**.
+
+---
+
+## Tags
+
+- Optional **key:value** **metadata** on resources.
+- Tags are **not inherited** (unlike some governance settings).
+- Can be **enforced** with **Azure Policy** (e.g. copy a required tag from the resource group if missing).
+
+---
+
+## Azure Blueprints
+
+- A **blueprint** is made of **artifacts**.
+- Supported artifact types include: **resource groups**, **ARM templates**, **policy assignments**, **role assignments**.
+
+---
+
+## Control plane vs data plane
+
+- **Control plane** — create, update, delete **Azure resources** (goes through **ARM**). **RBAC**, **Policy**, etc. affect control plane.
+- **Data plane** — work **inside** the service (e.g. insert a row, write a blob). Different permissions/APIs than resource management.
+
+---
+
+## Compute
+
+**Virtual machines**
+
+- Virtualizes **hardware** — CPU, memory, network; different **SKUs** and **CPU:memory** ratios.
+
+**Azure Dedicated Host**
+
+- **Dedicated physical host** — you do not share the host with other tenants; place VMs on **your** host of a chosen SKU.
+
+**Containers**
+
+- Virtualize **software** / app packaging — **image** in a **registry**, run as **container**.
+- Containers start **much faster** than typical VMs.
+
+**ACI (Azure Container Instances)**
+
+- Good for **a few** containers, simpler scenarios.
+
+**AKS (Azure Kubernetes Service)**
+
+- When you need **orchestration**, **autoscaling**, richer platform — **nodes** visible to you; much of the control plane **managed**. Workloads run in **pods** (alternative: DIY Kubernetes on VMs).
+
+**Azure App Service**
+
+- **Web-focused**: APIs, web apps, mobile backends, etc.
+
+**Serverless / event-driven (examples)**
+
+- **Azure Functions**
+- **Azure Logic Apps**
+- **Event Grid** — route events to configured destinations
+
+---
+
+## Networking
+
+**Azure Virtual Network (VNet)**
+
+- Fundamental **private network** building block in Azure.
+
+**NSG (Network Security Group)**
+
+- Filters traffic **to/from** resources in a VNet.
+- Rules: allow/deny **inbound** and **outbound**; specify **source**, **destination**, **port**, **protocol**.
+- Can apply to several resource types associated with subnets/NICs (as per Azure design).
+
+**VNet isolation and connectivity**
+
+- Resources in **different VNets** do **not** talk by default → use **VNet peering** (or other connectivity patterns).
+- VMs in **different subnets** of the **same VNet** **can** communicate by default (subject to NSGs and other rules).
+
+**Hybrid**
+
+- **On-premises** to Azure: e.g. **site-to-site VPN** (and other options exist for production).
+
+---
+
+## Storage
+
+- **Storage account** — foundation; other storage patterns build on it; tied to a **region**.
+- **Redundancy:** **LRS**, **ZRS**, **GRS**, **GZRS**.
+- **ZRS** requires a region that **supports availability zones** (where applicable).
+
+---
+
+## Identity and hybrid directory
+
+- **Azure AD** — cloud identity directory for Microsoft cloud (expand in official docs: users, groups, apps, devices, etc.).
+- **Azure AD Connect** / **Azure AD Connect cloud sync** — sync from **on-premises AD** to **Azure AD**.
+
+---
+
+## Cloud adoption and support
+
+- **Microsoft Cloud Adoption Framework (CAF)** — guidance for business and technology strategy on Azure.
+- **Support plans (examples named):** Basic, Developer, Standard, Professional Direct, Premier.
+
+---
+
+## Quick review checklist
+
+- [ ] Zonal vs zone-redundant
+- [ ] Governance hierarchy and inheritance
+- [ ] RBAC vs Policy vs Budget vs Locks
+- [ ] ARM declarative vs imperative
+- [ ] Control plane vs data plane
+- [ ] IaaS vs PaaS examples
+- [ ] VNet vs subnet default connectivity
+- [ ] Storage redundancy letters (LRS/ZRS/GRS/GZRS)
